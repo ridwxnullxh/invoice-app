@@ -77,14 +77,12 @@ export default function ViewInvoicePage({ invoiceId, onGoBack }) {
               Edit
             </button>
           )}
-          {!isPaid && (
-            <button
-              onClick={() => setShowDeleteConfirm(true)}
-              className="px-6 py-3 rounded-full text-sm font-bold text-white bg-[#EC5757] hover:bg-[#FF9797] transition"
-            >
-              Delete
-            </button>
-          )}
+          <button
+            onClick={() => setShowDeleteConfirm(true)}
+            className="px-6 py-3 rounded-full text-sm font-bold text-white bg-[#EC5757] hover:bg-[#FF9797] transition"
+          >
+            Delete
+          </button>
           {isPending && (
             <button
               onClick={handleMarkPaid}
@@ -210,14 +208,12 @@ export default function ViewInvoicePage({ invoiceId, onGoBack }) {
             Edit
           </button>
         )}
-        {!isPaid && (
-          <button
-            onClick={() => setShowDeleteConfirm(true)}
-            className="px-5 py-3 rounded-full text-xs font-bold text-white bg-[#EC5757] hover:bg-[#FF9797] transition"
-          >
-            Delete
-          </button>
-        )}
+        <button
+          onClick={() => setShowDeleteConfirm(true)}
+          className="px-5 py-3 rounded-full text-xs font-bold text-white bg-[#EC5757] hover:bg-[#FF9797] transition"
+        >
+          Delete
+        </button>
         {isPending && (
           <button
             onClick={handleMarkPaid}

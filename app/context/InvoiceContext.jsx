@@ -125,6 +125,23 @@ function generateId() {
   return L[r(26)] + L[r(26)] + r(10) + r(10) + r(10) + r(10);
 }
 
+function formatDueDate(dateObj) {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const day = String(dateObj.getDate()).padStart(2, '0');
+  const month = months[dateObj.getMonth()];
+  const year = dateObj.getFullYear();
+  return `${day} ${month} ${year}`;
+}
+
+function calculateDueDate(invoiceDate, paymentTerms) {
+  if (!invoiceDate || !paymentTerms) return "";
+  const days = parseInt(paymentTerms.replace(/[^0-9]/g, "")) || 0;
+  const date = new Date(invoiceDate);
+  if (isNaN(date.getTime())) return "";
+  date.setDate(date.getDate() + days);
+  return formatDueDate(date);
+}
+
 const InvoiceContext = createContext(null);
 
 export function InvoiceProvider({ children }) {
@@ -147,6 +164,7 @@ export function InvoiceProvider({ children }) {
     const invoice = {
       ...data,
       id: generateId(),
+      dueDate: calculateDueDate(data.invoiceDate, data.paymentTerms),
       client: data.billTo?.name || "",
       amount: data.items.reduce((s, i) => s + i.qty * i.price, 0),
     };
@@ -161,6 +179,7 @@ export function InvoiceProvider({ children }) {
           ? {
               ...inv,
               ...data,
+              dueDate: calculateDueDate(data.invoiceDate || inv.invoiceDate, data.paymentTerms || inv.paymentTerms),
               client: data.billTo?.name || inv.client,
               amount: data.items.reduce((s, i) => s + i.qty * i.price, 0),
             }

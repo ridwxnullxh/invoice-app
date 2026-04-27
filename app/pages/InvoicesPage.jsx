@@ -182,15 +182,29 @@ function EmptyState() {
   return (
     <div className="flex flex-col items-center justify-center py-24 text-center px-6">
       <svg className="mb-10 w-48 h-48" viewBox="0 0 242 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="121" cy="188" rx="121" ry="12" fill="currentColor" className="text-gray-100 dark:text-[#1E2139]"/>
-        <rect x="61" y="20" width="120" height="160" rx="12" fill="currentColor" className="text-[#DFE3FA] dark:text-[#252945]"/>
-        <rect x="75" y="48" width="92" height="8" rx="4" fill="currentColor" className="text-[#9277FF] dark:text-[#7C5DFA] opacity-60"/>
-        <rect x="75" y="68" width="72" height="6" rx="3" fill="currentColor" className="text-gray-300 dark:text-[#494E6E]"/>
-        <rect x="75" y="84" width="60" height="6" rx="3" fill="currentColor" className="text-gray-300 dark:text-[#494E6E]"/>
-        <rect x="75" y="108" width="92" height="6" rx="3" fill="currentColor" className="text-gray-300 dark:text-[#494E6E]"/>
-        <rect x="75" y="124" width="80" height="6" rx="3" fill="currentColor" className="text-gray-300 dark:text-[#494E6E]"/>
-        <circle cx="121" cy="20" r="16" fill="currentColor" className="text-[#7C5DFA]"/>
-        <path d="M114 20h14M121 13v14" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+        <ellipse cx="121" cy="185" rx="95" ry="15" fill="#DFE3FA" fillOpacity="0.4"/>
+        {/* envelope body */}
+        <rect x="56" y="80" width="130" height="95" rx="10" fill="#DFE3FA"/>
+        <path d="M56 90L121 135L186 90" stroke="#9277FF" strokeWidth="3" strokeLinecap="round"/>
+        {/* paper plane */}
+        <path d="M175 130L200 115L180 155L175 130Z" fill="#9277FF" fillOpacity="0.5"/>
+        <path d="M175 130L200 115" stroke="#9277FF" strokeWidth="2"/>
+        {/* envelope flap */}
+        <path d="M56 80L121 122L186 80H56Z" fill="#C8CEED"/>
+        {/* floating envelopes */}
+        <rect x="30" y="55" width="40" height="30" rx="4" fill="#DFE3FA" fillOpacity="0.8" transform="rotate(-15 30 55)"/>
+        <path d="M30 62L50 72L70 62" stroke="#9277FF" strokeWidth="1.5" strokeLinecap="round" transform="rotate(-15 30 55)" style={{transformOrigin: '50px 62px'}}/>
+        <rect x="175" y="42" width="36" height="26" rx="4" fill="#DFE3FA" fillOpacity="0.8" transform="rotate(12 175 42)"/>
+        <path d="M175 48L193 57L211 48" stroke="#9277FF" strokeWidth="1.5" strokeLinecap="round" transform="rotate(12 175 42)" style={{transformOrigin: '193px 48px'}}/>
+        {/* person outline */}
+        <circle cx="121" cy="50" r="18" fill="#9277FF" fillOpacity="0.15" stroke="#9277FF" strokeWidth="2"/>
+        <path d="M113 50C113 46 117 42 121 42C125 42 129 46 129 50" stroke="#9277FF" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="117" y="50" width="8" height="10" rx="2" fill="#9277FF" fillOpacity="0.4"/>
+        {/* megaphone */}
+        <path d="M128 45L145 38V62L128 55V45Z" fill="#9277FF"/>
+        <rect x="124" y="47" width="6" height="8" rx="1" fill="#9277FF" fillOpacity="0.6"/>
+        <path d="M145 45C148 45 151 47 151 50C151 53 148 55 145 55" stroke="#9277FF" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M145 41C150 41 155 45 155 50C155 55 150 59 145 59" stroke="#9277FF" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5"/>
       </svg>
       <h2 className="text-2xl font-bold dark:text-white mb-3">There is nothing here</h2>
       <p className="text-[#888EB0] max-w-xs text-sm leading-relaxed">
